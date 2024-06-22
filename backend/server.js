@@ -1,5 +1,5 @@
 const express = require('express');
-const mongose = require('mongoose')
+const mongoose = require('mongoose')
 const cors = require('cors')
 
 
@@ -11,7 +11,7 @@ app.use(cors())
 app.use(express.json())
 
 //Connect to MongoDB
-mongose.connect('mongodb://localhost:27017/home_schedule', {
+mongoose.connect('mongodb://localhost:27017/home_schedule', {
     useNewUrlParse: true,
     useUnifiedTopology: true,
 }).then(() => console.log('MongoDB connected')
@@ -20,7 +20,7 @@ mongose.connect('mongodb://localhost:27017/home_schedule', {
 
 //Routes
 app.use('/tasks', require('./routes/tasks'));
-app.use('/projects', require('./routes/project'));
+app.use('/projects', require('./routes/projects'));
 app.use('/questions', require('./routes/questions'));
 app.use('/calendars', require('./routes/calendars'));
 
